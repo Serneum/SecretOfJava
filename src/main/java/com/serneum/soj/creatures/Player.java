@@ -283,6 +283,6 @@ public class Player extends Creature
     @Override
     public String toString()
     {
-        return "GameObject/Creature/Player";
+        return "object/creature/player";
     }
 }

@@ -107,7 +107,7 @@ public class Spells
 
 
         System.out.print("Casting fireball towards " + x + "," + z + "\n");
-        SpellObject fireBall = new SpellObject("fireBall", (int)(caster.mapX), (int)(caster.bottomRange.getY()),
+        SpellObject fireBall = new SpellObject("fireball", (int)(caster.mapX), (int)(caster.bottomRange.getY()),
                 (int)(caster.mapZ), 20, 20, 20, "Explode");
 
         if (fireBall.getY() == 0) {

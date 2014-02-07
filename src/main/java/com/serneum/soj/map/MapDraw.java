@@ -9,6 +9,7 @@ package com.serneum.soj.map;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 
@@ -17,16 +18,17 @@ public class MapDraw
     private static Image background;
     private static boolean imageLoaded = false;
 
-    public static void loadMap(String path)
+    public static void loadMap(int mapNum)
     {
-        background = getMapImage(path);
+        background = getMapImage(mapNum);
         ScreenCoord.getMapCoord(background);
     }
 
-    private static Image getMapImage(String imageName)
+    private static Image getMapImage(int mapNum)
     {
+        URL imgUrl = MapDraw.class.getResource("/bg/bg" + mapNum + ".png");
         imageLoaded = true;
-        return new ImageIcon(imageName).getImage();
+        return new ImageIcon(imgUrl).getImage();
     }
 
     //Load the map and print it on the screen.
@@ -50,7 +52,7 @@ public class MapDraw
 
         else
         {
-            loadMap("images/bg/bg1.png");
+            loadMap(1);
         }
 
 

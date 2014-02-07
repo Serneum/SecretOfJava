@@ -165,7 +165,7 @@ public class ManaBeast extends Creature implements AIBase
     @Override
     public String toString()
     {
-        return "GameObject/Creature/ManaBeast";
+        return "object/creature/manabeast";
     }
 
     /*

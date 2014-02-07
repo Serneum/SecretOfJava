@@ -23,7 +23,7 @@ public class MapDeterminer
     {
         //Gather and send info to redraw
         int r = gen.nextInt(2) + 1;
-        MapDraw.loadMap("images/bg/bg" + r + ".png");
+        MapDraw.loadMap(r);
         Walls.setImage(r);
         Walls.count = 0;
         Walls.ranOnce = false;

@@ -37,10 +37,12 @@ public class InputManager implements KeyListener, MouseListener,
     /**
      *  Custom Cursor
      */
+
     public static final Cursor SPELL_AIM_CURSOR =
         Toolkit.getDefaultToolkit().createCustomCursor(
-                Toolkit.getDefaultToolkit().getImage("images/cursor/SpellCursor.png")
-                , new Point(0,0), "spell aim");
+                Toolkit.getDefaultToolkit().getImage(
+                        InputManager.class.getResource("/cursor/SpellCursor.png"))
+                                , new Point(0,0), "spell aim");
 
     // mouse codes
     public static final int MOUSE_MOVE_LEFT = 0;

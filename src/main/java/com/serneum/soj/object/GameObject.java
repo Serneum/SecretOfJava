@@ -5,6 +5,7 @@ package com.serneum.soj.object;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 
@@ -42,7 +43,8 @@ public class GameObject
         animation = new Animation();
         sprite = animation.getImage();
         if (!(name.startsWith("wall"))) {
-            objectShadow = new ImageIcon("images/GameObject/Shadow1.png").getImage();
+            URL imageUrl = GameObject.class.getResource("/object/Shadow1.png");
+            objectShadow = new ImageIcon(imageUrl).getImage();
         }
 
         velocityX = 0;
@@ -89,7 +91,7 @@ public class GameObject
     @Override
     public String toString()
     {
-        return "GameObject";
+        return "object";
     }
 
     public void init()
@@ -295,7 +297,7 @@ public class GameObject
         if (onScreen()||this instanceof Player)
         {
 
-            g.drawImage(objectShadow, (int)(X - 8.5), (int)(bottomRange.getZ() + this.getHeight()/1.5), null);
+            g.drawImage(objectShadow, (int)(X - 8.5), (int)(bottomRange.getZ() + this.getHeight()/1.1), null);
 
             AffineTransform transform = new AffineTransform();
 
@@ -323,11 +325,13 @@ public class GameObject
 
     public void loadSprite()
     {
-        String path = "images/" + toString() + "/";
+        String path = "/" + toString() + "/";
 
         for (int count = 1; count <= frames; count++)
         {
-            animation.addFrame(new ImageIcon(path + name + count + ".png").getImage(), 150);
+            String objectPath = path + name + count + ".png";
+            URL imageUrl = GameObject.class.getResource(objectPath);
+            animation.addFrame(new ImageIcon(imageUrl).getImage(), 150);
         }
     }
 

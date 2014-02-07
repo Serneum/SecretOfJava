@@ -3,6 +3,7 @@ package com.serneum.soj.object;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 
@@ -101,12 +102,14 @@ public class GraphicObject
 
         if (type.equals("skill"))
         {
-            path = "images/skills/"+ name + "/";
+            path = "/skills/"+ name + "/";
         }
 
         for (int count = 1; count <= frames; count++)
         {
-            animation.addFrame(new ImageIcon(path + name + count + ".png").getImage(), frameDuration);
+            String objectPath = path + name + count + ".png";
+            URL imageUrl = GraphicObject.class.getResource(objectPath);
+            animation.addFrame(new ImageIcon(imageUrl).getImage(), frameDuration);
         }
 
     }

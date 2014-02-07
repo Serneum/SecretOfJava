@@ -156,7 +156,6 @@ public class GameBase
         //Caused many problems before it was placed here
         ScreenCoord.init();
 
-
 //masterList keeps track of all 'things' on the current map
 //screenList keeps track of all 'things' on screen
         masterList = new Vector<GameObject>();
@@ -172,7 +171,7 @@ public class GameBase
 
 //TestPlayer
         player = new Player("Player", 75, 75, 32, 34, 34, 1);
-        //masterList.add(Playah);
+        //masterList.add(Player);
 //Test Object
         box = new GameObject("Box", 250, 250, 27, 23, 23);
         //masterList.add(Box);
@@ -191,7 +190,7 @@ public class GameBase
         // start music
         midiPlayer = new MidiPlayer();
         Sequence sequence =
-            midiPlayer.getSequence("sounds/dungeon.midi");
+            midiPlayer.getSequence(GameBase.class.getResourceAsStream("/sounds/dungeon.midi"));
         midiPlayer.play(sequence, true);
 
         isRunning = true;
@@ -390,15 +389,6 @@ public class GameBase
             // update
             update();
 
-            /*
-            g.drawString("Player: " + Playah.BottomRange.getX() + "," + Playah.BottomRange.getZ(), 20, 40);
-            g.drawString("Player: " + Playah.UpperRange.getX() + "," + Playah.UpperRange.getZ(), 20, 60);
-            g.drawString("Box: " + Box.BottomRange.getX() + "," + Box.BottomRange.getZ(), 20, 510);
-            g.drawString("Box: " + Box.UpperRange.getX() + "," + Box.UpperRange.getZ(), 20, 530);
-            g.drawString("Shadow: " + dot.BottomRange.getX() + "," + dot.BottomRange.getZ(), 560, 40);
-            g.drawString("Shadow: " + dot.UpperRange.getX() + "," + dot.UpperRange.getZ(), 560, 60);
-            */
-
             //Initiates a loop to draw all objects currently on the screen
             for (int counter = 0; counter < screenList.size(); counter++)
             {
@@ -432,14 +422,6 @@ public class GameBase
             {
                 graphicList.elementAt(counter).paint(g2);
             }
-
-            /*
-            g.setColor(Color.green);
-            g.drawString("Health: " + Playah.currentHealth, 20, 40);
-            g.drawString("EXP: " + Playah.EXP, 20, 60);
-            g.drawString("Level: " + Playah.level, 20, 80);
-            g.dispose();
-            */
 
             ScreenManager.update();
         }

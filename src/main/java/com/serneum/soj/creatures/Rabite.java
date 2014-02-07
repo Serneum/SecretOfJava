@@ -188,6 +188,6 @@ public class Rabite extends Creature implements AIBase
     @Override
     public String toString()
     {
-        return "GameObject/Creature/Rabite";
+        return "object/creature/rabite";
     }
 }

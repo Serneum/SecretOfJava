@@ -8,6 +8,17 @@ staircase to the next floor.
 
 Sprites were taken from various sprite sheets on the internet. Some come from Sword of Mana, while others come from open source games.
 
+Controls
+--------
+- WASD movement
+- 1, 2, and 3 are spells. Click to use after pressing any of the buttons
+- 4 and 5 use abilities in front of the player
+- P to pause/unpause the game
+- Esc to quit the game
+
+
+Build
+-----
 You can build the jar by running
 ```
 gradle jar

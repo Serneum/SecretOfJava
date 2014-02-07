@@ -3,6 +3,7 @@
 package com.serneum.soj.creatures;
 
 import java.util.Random;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 
@@ -55,19 +56,23 @@ public class Creature extends GameObject
     @Override
     public void loadSprite()
     {
-        path = "images/" + toString() + "/";
+        path = "/" + toString() + "/";
 
         for (int count = 1; count <= idleFrames; count++)
         {
             //System.out.println(path + name + "Idle" + count + ".png");
-            idle.addFrame(new ImageIcon(path + name + "Idle" + count + ".png").getImage(), 1);
+            String idlePath = path + name + "Idle" + count + ".png";
+            URL imageUrl = Creature.class.getResource(idlePath);
+            idle.addFrame(new ImageIcon(imageUrl).getImage(), 1);
         }
 
         if (attackFrames > 0) {
             for (int count = 1; count <= attackFrames; count++)
             {
                 //System.out.println(path + name + "Attack" + count + ".png");
-                attacking.addFrame(new ImageIcon(path + name + "Attack" + count + ".png").getImage(), 150);
+                String attackPath = path + name + "Attack" + count + ".png";
+                URL imageUrl = Creature.class.getResource(attackPath);
+                attacking.addFrame(new ImageIcon(imageUrl).getImage(), 150);
             }
         }
 
@@ -75,7 +80,9 @@ public class Creature extends GameObject
             for (int count = 1; count <= walkingFrames; count++)
             {
                 //System.out.println(path + name + "Walk" + count + ".png");
-                moving.addFrame(new ImageIcon(path + name + "Walk" + count + ".png").getImage(), 150);
+                String walkPath = path + name + "Attack" + count + ".png";
+                URL imageUrl = Creature.class.getResource(walkPath);
+                moving.addFrame(new ImageIcon(imageUrl).getImage(), 150);
             }
         }
 
@@ -119,7 +126,7 @@ public class Creature extends GameObject
     @Override
     public String toString()
     {
-        return "GameObject/Creature";
+        return "object/creature";
     }
 
     public void struckFor(int damage, String type)
@@ -129,7 +136,7 @@ public class Creature extends GameObject
         if(r > 25 - (.5 * level))
         {
             this.currentHealth -= damage;
-            System.out.print(name + " Struck for " + damage + " " + type + "\n");
+            //System.out.print(name + " Struck for " + damage + " " + type + "\n");
 
             new GraphicObject(this, "" + damage, type);
             if (currentHealth <= 0)

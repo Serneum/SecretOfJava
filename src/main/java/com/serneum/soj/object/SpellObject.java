@@ -84,7 +84,7 @@ public class SpellObject extends GameObject
     @Override
     public String toString()
     {
-        return "Skills/"+ name;
+        return "skills/"+ name;
     }
 
 }
