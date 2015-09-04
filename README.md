@@ -1,6 +1,3 @@
-Secret Of Java
-==============
-
 Secret of Java is an endless dungeon crawler that was written for a Game Programming class many years ago. Doors (openings in the wall)
 are randomly generated and can appear in the middle of any of the four walls. The number of enemies, as well as the number of boxes you can push,
 are also randomly generated. Every once in a while, the Mana Beast will appear on the far right side of the map and, when defeated, will reveal a
